@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Dashboard — Shoulder Surfing Protected</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.css">
+  </head>
+  <body class="bg-black text-gray-100 antialiased">
+    <div class="min-h-screen p-8">
+      <div class="max-w-7xl mx-auto">
+        <!-- Header -->
+        <div class="glass-card rounded-lg p-6 mb-8">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+              <div class="status-indicator status-protected scale-150"></div>
+              <div>
+                <h1 class="text-3xl font-bold text-[#7ef9ff] neon">Security Dashboard</h1>
+                <p class="text-slate-400 mt-1">Shoulder Surfing Protection System</p>
+              </div>
+            </div>
+            <div class="flex items-center space-x-4">
+              <div class="text-right">
+                <div class="text-sm text-slate-400">Welcome back</div>
+                <div id="userDisplay" class="text-lg font-semibold text-cyan-400">student</div>
+              </div>
+              <button id="logoutBtn" class="btn btn-ghost">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
+                </svg>
+                Logout
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stats Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+          <div class="glass-card rounded-lg p-6 border-l-4 border-green-400">
+            <div class="flex items-center justify-between">
+              <div>
+                <div class="text-sm text-slate-400">Security Status</div>
+                <div id="securityStatus" class="mt-2 text-xl font-bold text-green-400">Protected</div>
+              </div>
+              <div class="status-indicator status-protected scale-150"></div>
+            </div>
+          </div>
+          
+          <div class="glass-card rounded-lg p-6 border-l-4 border-cyan-400">
+            <div class="flex items-center justify-between">
+              <div>
+                <div class="text-sm text-slate-400">Login Time</div>
+                <div id="loginTime" class="mt-2 font-mono text-sm text-cyan-300">--:--:--</div>
+              </div>
+              <svg class="w-8 h-8 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+          </div>
+          
+          <div class="glass-card rounded-lg p-6 border-l-4 border-purple-400">
+            <div class="flex items-center justify-between">
+              <div>
+                <div class="text-sm text-slate-400">Browser</div>
+                <div id="browserInfo" class="mt-2 font-mono text-sm text-purple-300">--</div>
+              </div>
+              <svg class="w-8 h-8 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path>
+              </svg>
+            </div>
+          </div>
+          
+          <div class="glass-card rounded-lg p-6 border-l-4 border-amber-400">
+            <div class="flex items-center justify-between">
+              <div>
+                <div class="text-sm text-slate-400">Session Duration</div>
+                <div id="sessionDuration" class="mt-2 font-mono text-sm text-amber-300">00:00</div>
+              </div>
+              <svg class="w-8 h-8 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Security Features & Logs -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <!-- Security Features -->
+          <div class="lg:col-span-1">
+            <div class="glass-card rounded-lg p-6">
+              <h3 class="text-lg font-semibold text-[#a9fff9] mb-4 flex items-center">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                </svg>
+                Active Security Features
+              </h3>
+              <div class="space-y-3">
+                <div class="flex items-center justify-between p-3 bg-slate-800/40 rounded-lg">
+                  <span class="text-sm text-slate-300">Keyboard Shuffling</span>
+                  <span class="status-indicator status-protected"></span>
+                </div>
+                <div class="flex items-center justify-between p-3 bg-slate-800/40 rounded-lg">
+                  <span class="text-sm text-slate-300">Decoy Cursor</span>
+                  <span class="status-indicator status-protected"></span>
+                </div>
+                <div class="flex items-center justify-between p-3 bg-slate-800/40 rounded-lg">
+                  <span class="text-sm text-slate-300">Blur Protection</span>
+                  <span class="status-indicator status-protected"></span>
+                </div>
+                <div class="flex items-center justify-between p-3 bg-slate-800/40 rounded-lg">
+                  <span class="text-sm text-slate-300">Mouse Detection</span>
+                  <span class="status-indicator status-protected"></span>
+                </div>
+                <div class="flex items-center justify-between p-3 bg-slate-800/40 rounded-lg">
+                  <span class="text-sm text-slate-300">Session Security</span>
+                  <span class="status-indicator status-protected"></span>
+                </div>
+              </div>
+              
+              <div class="mt-6 p-4 bg-gradient-to-r from-green-900/20 to-cyan-900/20 rounded-lg border border-cyan-500/20">
+                <div class="text-xs text-slate-400 mb-2">Overall Security Score</div>
+                <div class="flex items-center space-x-3">
+                  <div class="flex-1 bg-slate-700 rounded-full h-3 overflow-hidden">
+                    <div class="h-full bg-gradient-to-r from-green-400 to-cyan-400 rounded-full transition-all duration-1000" style="width: 0%" id="securityScore"></div>
+                  </div>
+                  <span class="text-lg font-bold text-cyan-400" id="securityScoreText">0%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Security Logs -->
+          <div class="lg:col-span-2">
+            <div class="glass-card rounded-lg p-6">
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="text-lg font-semibold text-[#a9fff9] flex items-center">
+                  <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                  </svg>
+                  Security Activity Log
+                </h3>
+                <button id="refreshLogs" class="btn btn-ghost text-sm">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                  </svg>
+                  Refresh
+                </button>
+              </div>
+              <div id="logs" class="max-h-96 overflow-auto bg-black/30 p-4 rounded-lg text-xs font-mono">
+                <div class="text-slate-500 text-center py-8">Loading security logs...</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="/js/dashboard.js"></script>
+  </body>
+</html>
