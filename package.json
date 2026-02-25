@@ -5,13 +5,15 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "build": "echo 'No build step needed - static files ready'",
-    "netlify": "netlify dev"
+    "dev": "node server.js"
   },
   "dependencies": {
     "bcrypt": "^5.1.0",
     "express": "^4.18.2",
-    "express-session": "^1.17.3",
+    "express-session": "^4.17.3",
     "helmet": "^7.0.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
   }
 }
