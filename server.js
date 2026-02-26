@@ -39,11 +39,11 @@ function addLog(username, event, details) {
 // Seed a demo user on startup
 (async () => {
   const username = 'student';
-  const plain = 'P@ssw0rd123';
+  const plain = 'ADMIN12';
   const hash = await bcrypt.hash(plain, 10);
   users.push({ username, passwordHash: hash });
   securityLogs[username] = [];
-  console.log('Seeded demo user: username=student password=P@ssw0rd123');
+  console.log('Seeded demo user: username=student password=ADMIN12');
 })();
 
 // API: login
